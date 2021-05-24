@@ -23,6 +23,10 @@ https://www.mongodb.com/try/download/community
 
 CRUD de produtos usando o banco de dados em memória H2 e o message broker RabbitMQ
 
+As funções de Producer e Consumer são executadas pelo mesmo projeto, para não ser necessária a execução de dois projetos separados.
+
+Sempre que uma requisição da API é processada sem erros, uma mensagem é enviada do Producer ao Consumer, que irá exibi-la no terminal.
+
 Requisitos para execução do projeto:
 ```bash
 # Instalar o Docker v20.10.6
