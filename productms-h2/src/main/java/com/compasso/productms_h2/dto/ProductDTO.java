@@ -8,6 +8,8 @@ import javax.validation.constraints.Positive;
 
 import com.compasso.productms_h2.entities.Product;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class ProductDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -16,6 +18,7 @@ public class ProductDTO implements Serializable {
 	@NotBlank
 	String name;
 
+	@ApiModelProperty(notes = "Descrição do produto")
 	@NotBlank
 	String description;
 
