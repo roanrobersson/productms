@@ -1,22 +1,26 @@
-package com.compasso.productms_h2.controllers.exceptions;
+package com.compasso.productms_h2.exceptions;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
+import javax.persistence.EntityNotFoundException;
+
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.compasso.productms_h2.dto.ProductDTO;
-import com.compasso.productms_h2.services.exceptions.ResourceNotFoundException;
 
 @ControllerAdvice
-public class ResourceExceptionHandler {
+public class ProductExceptionHandler {
 
-	@ExceptionHandler(ResourceNotFoundException.class)
-	public ResponseEntity<ProductDTO> entityNotFound(ResourceNotFoundException e) {
+	@ExceptionHandler({ EmptyResultDataAccessException.class, EntityNotFoundException.class,
+			IllegalArgumentException.class, NoSuchElementException.class })
+	public ResponseEntity<ProductDTO> entityNotFound(RuntimeException e) {
 		return ResponseEntity.notFound().build();
 	}
 
