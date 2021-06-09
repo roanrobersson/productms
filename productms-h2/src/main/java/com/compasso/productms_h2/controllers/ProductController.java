@@ -35,7 +35,8 @@ public class ProductController {
 	private ProductService service;
 
 	@ApiOperation(value = "Consulta um produto pelo ID")
-	@ApiResponses({ @ApiResponse(code = 200, message = "Sucesso"),
+	@ApiResponses({ 
+			@ApiResponse(code = 200, message = "Sucesso"),
 			@ApiResponse(code = 400, message = "Produto não encontrado") })
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
